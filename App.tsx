@@ -1,20 +1,18 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { ApplicationProvider } from "@ui-kitten/components";
+import * as eva from "@eva-design/eva";
+import { Container, Text } from "./src/component";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 
-export default function App() {
+export default () => {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaProvider>
+      <ApplicationProvider {...eva} theme={eva.dark}>
+        <Container>
+          <StatusBar style="light" />
+          <Text style={{textTransform: 'lowercase'}}>Open up App.js to start working on your app!</Text>
+        </Container>
+      </ApplicationProvider>
+    </SafeAreaProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
