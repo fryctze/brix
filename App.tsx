@@ -1,18 +1,33 @@
+import React from "react";
 import { StatusBar } from 'expo-status-bar';
 import { ApplicationProvider } from "@ui-kitten/components";
 import * as eva from "@eva-design/eva";
-import { Container, Text } from "./src/component";
 import { SafeAreaProvider } from "react-native-safe-area-context";
+import { default as customTheme } from "./src/constant/appTheme.json";
+import { ThemeContext } from "./src/provider/theme-context";
 
 export default () => {
+
+  const [theme, setTheme] = React.useState<"light" | "dark">("light");
+  const toggleTheme = React.useCallback(() => {
+    const nextTheme = theme === "light" ? "dark" : "light";
+    setTheme(nextTheme);
+  }, [theme]);
+
   return (
     <SafeAreaProvider>
-      <ApplicationProvider {...eva} theme={eva.dark}>
-        <Container>
-          <StatusBar style="light" />
-          <Text style={{textTransform: 'lowercase'}}>Open up App.js to start working on your app!</Text>
-        </Container>
-      </ApplicationProvider>
+      <ThemeContext.Provider value={{ theme, toggleTheme }}>
+        <ApplicationProvider
+          {...eva}
+          theme={
+            theme === "light" ?
+              {...eva.light, ...customTheme} :
+              {...eva.dark, ...customTheme}
+          }>
+          <StatusBar style={theme === "light" ? "dark" : "light"} />
+          {/* Container */}
+        </ApplicationProvider>
+      </ThemeContext.Provider>
     </SafeAreaProvider>
   );
 }
