@@ -1,17 +1,32 @@
+import { Text, TextProps } from '@ui-kitten/components';
 import * as React from 'react';
 import { TextStyle } from 'react-native';
-import { Text, TextProps } from '@ui-kitten/components';
 
 export interface MyTextProps extends TextProps {
   style?: TextStyle;
   category?:
-    | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
-    | 'p1' | 'p2' // body
-    | 's1' | 's2' // subtitle
-    | 'c1' | 'c2' // hint
-    | 'label';    // hint too
+    | 'h1'
+    | 'h2'
+    | 'h3'
+    | 'h4'
+    | 'h5'
+    | 'h6'
+    | 'p1'
+    | 'p2' // body
+    | 's1'
+    | 's2' // subtitle
+    | 'c1'
+    | 'c2' // hint
+    | 'label'; // hint too
 
-  status?: | 'basic' | 'primary' | 'success' | 'info' | 'warning' | 'danger' | 'control';
+  status?:
+    | 'basic'
+    | 'primary'
+    | 'success'
+    | 'info'
+    | 'warning'
+    | 'danger'
+    | 'control';
 
   children?: any;
   marginLeft?: number;
@@ -71,17 +86,24 @@ export default React.forwardRef(
     let textAlign: 'left' | 'center' | 'right' | 'auto' | 'justify';
 
     left
-      ? (textAlign = 'left') : right
-      ? (textAlign = 'right') : center
-      ? (textAlign = 'center') : (textAlign = 'left');
+      ? (textAlign = 'left')
+      : right
+      ? (textAlign = 'right')
+      : center
+      ? (textAlign = 'center')
+      : (textAlign = 'left');
 
     let textTransform: 'uppercase' | 'lowercase' | 'capitalize' | 'none';
 
     uppercase
-      ? (textTransform = 'uppercase') : lowercase
-      ? (textTransform = 'lowercase') : capitalize
-      ? (textTransform = 'capitalize') : none
-      ? (textTransform = 'none') : (textTransform = 'none');
+      ? (textTransform = 'uppercase')
+      : lowercase
+      ? (textTransform = 'lowercase')
+      : capitalize
+      ? (textTransform = 'capitalize')
+      : none
+      ? (textTransform = 'none')
+      : (textTransform = 'none');
 
     let textDecorationLine:
       | 'none'
@@ -89,8 +111,10 @@ export default React.forwardRef(
       | 'line-through'
       | 'underline line-through';
     underline
-      ? (textDecorationLine = 'underline') : line_through
-      ? (textDecorationLine = 'line-through') : (textDecorationLine = 'none');
+      ? (textDecorationLine = 'underline')
+      : line_through
+      ? (textDecorationLine = 'line-through')
+      : (textDecorationLine = 'none');
 
     let fontStyle: 'normal' | 'italic';
     italic ? (fontStyle = 'italic') : (fontStyle = 'normal');
@@ -131,23 +155,22 @@ export default React.forwardRef(
         status={status}
         style={[
           {
-            marginLeft: marginLeft,
-            marginRight: marginRight,
-            marginTop: marginTop,
-            marginBottom: marginBottom,
-            marginVertical: marginVertical,
-            marginHorizontal: marginHorizontal,
-            opacity: opacity,
-            textAlign: textAlign,
-            maxWidth: maxWidth,
+            marginLeft,
+            marginRight,
+            marginTop,
+            marginBottom,
+            marginVertical,
+            marginHorizontal,
+            opacity,
+            textAlign,
+            maxWidth,
             lineHeight: lineHeight ? lineHeight : getLineHeight(),
-            textTransform: textTransform,
-            textDecorationLine: textDecorationLine,
-            fontStyle: fontStyle,
+            textTransform,
+            textDecorationLine,
+            fontStyle,
           },
           style,
-        ]}
-      >
+        ]}>
         {children}
       </Text>
     );

@@ -1,5 +1,3 @@
-import useLayout from "./useLayout";
+import useLayout from './useLayout';
 
-export {
-  useLayout,
-};
+export { useLayout };
