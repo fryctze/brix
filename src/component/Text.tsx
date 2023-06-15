@@ -169,6 +169,7 @@ export default React.forwardRef(
             textDecorationLine,
             fontStyle,
           },
+          bold ? { fontFamily: 'Roboto-Bold' } : undefined,
           style,
         ]}>
         {children}
