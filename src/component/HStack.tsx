@@ -1,11 +1,17 @@
-import {useTheme} from '@ui-kitten/components';
-import React, {memo} from 'react';
-import {GestureResponderEvent, StyleProp, TouchableOpacity, ViewProps, ViewStyle} from 'react-native';
+import { useTheme } from '@ui-kitten/components';
+import React, { memo } from 'react';
+import {
+  GestureResponderEvent,
+  StyleProp,
+  TouchableOpacity,
+  ViewProps,
+  ViewStyle,
+} from 'react-native';
 
 export interface HStackProps extends ViewProps {
   padder?: boolean;
   mt?: number;
-  style?:StyleProp<ViewStyle>
+  style?: StyleProp<ViewStyle>;
   mb?: number;
   mh?: number;
   mv?: number;
@@ -43,10 +49,17 @@ const HStack: React.FC<HStackProps> = memo(
     style,
     padder,
     children,
-    mt, mb, ml, mr,
-    mh, mv,
-    pt, pb, pl,
-    ph, pv,
+    mt,
+    mb,
+    ml,
+    mr,
+    mh,
+    mv,
+    pt,
+    pb,
+    pl,
+    ph,
+    pv,
     padding,
     margin,
     itemsCenter,
@@ -63,7 +76,7 @@ const HStack: React.FC<HStackProps> = memo(
     ...props
   }) => {
     const theme = useTheme();
-    const disabled = !!!onPress && !!!onLongPress;
+    const disabled = !onPress && !onLongPress;
     return (
       <>
         <TouchableOpacity
@@ -73,15 +86,15 @@ const HStack: React.FC<HStackProps> = memo(
           onPress={onPress}
           style={[
             {
-              opacity: opacity,
+              opacity,
               borderRadius: border,
-              maxWidth: maxWidth,
-              minWidth: minWidth,
+              maxWidth,
+              minWidth,
               alignItems: itemsCenter ? 'center' : 'flex-start',
               paddingHorizontal: padder ? 24 : ph,
               paddingBottom: pb,
               paddingLeft: pl,
-              padding: padding,
+              padding,
               justifyContent: justify,
               marginTop: mt,
               alignSelf: alignSelfCenter ? 'center' : undefined,
@@ -93,7 +106,7 @@ const HStack: React.FC<HStackProps> = memo(
               marginVertical: mv,
               paddingTop: pt,
               flexWrap: wrap ? 'wrap' : undefined,
-              margin: margin,
+              margin,
               paddingVertical: pv,
               backgroundColor: level
                 ? theme[`background-basic-color-${level}`]
