@@ -6,7 +6,12 @@
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "web": "expo start --web"
+    "web": "expo start --web",
+    "test:eslint": "echo \"Running eslint check\" &&  eslint .",
+    "test:tsc": "echo \"Running typescript check\" && tsc",
+    "lint:fix": "eslint --fix 'src/**/*.{js,jsx,ts,tsx,json}'",
+    "lint:fix-all": "eslint --fix 'src/**/*.{js,jsx,ts,tsx,json}'",
+    "format": "prettier --write 'src/**/*.{js,jsx,ts,tsx,css,md,json}' --config"
   },
   "dependencies": {
     "@eva-design/eva": "^2.2.0",
@@ -25,6 +30,12 @@
   "devDependencies": {
     "@babel/core": "^7.20.0",
     "@types/react": "18.0.27",
+    "@types/react-native": "^0.72.2",
+    "eslint": "^8.42.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-config-universe": "^11.2.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "prettier": "^2.8.8",
     "typescript": "4.9.4"
   },
   "private": true
