@@ -3,6 +3,7 @@ import { StatusBar } from 'expo-status-bar';
 import { memo, useContext } from 'react';
 import { StyleSheet, Image } from 'react-native';
 
+import Images from '../assets/images';
 import { Container, VStack, Text, Content } from '../component';
 import { ThemeContext } from '../provider/theme-context';
 
@@ -15,13 +16,12 @@ export const IntroScreen = memo(() => {
       <Container>
         <Content>
           <VStack style={styles.container}>
-            {/*
             <Image source={Images.icon_white} resizeMethod="auto" />
             <Image
               source={Images.intro1}
               style={{ width: '100%' }}
               resizeMethod="auto"
-            />*/}
+            />
             <VStack ph={32}>
               <Text category="label" bold>
                 Make Learning Easy and Fun
