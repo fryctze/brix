@@ -12,10 +12,13 @@ import AppContainer from './src/routes/AppContainer';
 
 export default () => {
   const [theme, setTheme] = useState<'light' | 'dark'>('light');
-  const toggleTheme = useCallback(() => {
-    const nextTheme = theme === 'light' ? 'dark' : 'light';
-    setTheme(nextTheme);
-  }, [theme]);
+  const toggleTheme = useCallback(
+    ui => {
+      const nextTheme = theme === 'light' ? 'dark' : 'light';
+      ui === undefined ? setTheme(nextTheme) : setTheme(ui);
+    },
+    [theme],
+  );
 
   const [fontsLoaded, setFontsLoaded] = useState(false);
   useEffect(() => {
