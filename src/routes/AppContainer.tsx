@@ -5,6 +5,7 @@ import { View } from 'react-native';
 
 import { IntroScreen } from '../screens/IntroScreen';
 import { ChooseUserSignScreen } from '../screens/auth/ChooseUserSignScreen';
+import { Intro } from '../screens/intro/Intro';
 import IntroSlideScreen from '../screens/intro/IntroSlideScreen';
 
 const Stack = createNativeStackNavigator();
@@ -12,13 +13,14 @@ const Stack = createNativeStackNavigator();
 const MainNavigation = () => {
   return (
     <Stack.Navigator
-      initialRouteName="IntroSlide"
+      initialRouteName="Intro"
       screenOptions={{
         headerShown: false,
       }}>
       <Stack.Screen name="IntroSlide" component={IntroSlideScreen} />
       <Stack.Screen name="ChooseUserSign" component={ChooseUserSignScreen} />
-      <Stack.Screen name="Intro" component={IntroScreen} />
+      <Stack.Screen name="IntroScreen" component={IntroScreen} />
+      <Stack.Screen name="Intro" component={Intro} />
     </Stack.Navigator>
   );
 };

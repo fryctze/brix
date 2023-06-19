@@ -1,9 +1,23 @@
+import { useStyleSheet } from '@ui-kitten/components';
+import { useContext, useEffect } from 'react';
 import { Image, StyleSheet } from 'react-native';
 
 import Images from '../../assets/images';
 import { Container, HStack, VStack, Text } from '../../component';
+import { ThemeContext } from '../../provider/theme-context';
 
 export const ChooseUserSignScreen = () => {
+  const themeContext = useContext(ThemeContext);
+  const styles = useStyleSheet(themedStyles);
+
+  function changeTheme() {
+    themeContext.toggleTheme('light');
+  }
+
+  useEffect(() => {
+    changeTheme();
+  }, []);
+
   return (
     <Container style={{ flex: 1, alignSelf: 'stretch' }}>
       <VStack style={{ alignItems: 'center' }} padder={true}>
@@ -56,7 +70,7 @@ export const ChooseUserSignScreen = () => {
   );
 };
 
-const styles = StyleSheet.create({
+const themedStyles = StyleSheet.create({
   ButtonLayout: {
     flex: 1,
     alignItems: 'center',
