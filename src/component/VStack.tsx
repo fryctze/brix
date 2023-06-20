@@ -1,6 +1,10 @@
-import {useTheme} from '@ui-kitten/components';
-import React, {memo} from 'react';
-import {GestureResponderEvent, TouchableOpacity, ViewProps} from 'react-native';
+import { useTheme } from '@ui-kitten/components';
+import React, { memo } from 'react';
+import {
+  GestureResponderEvent,
+  TouchableOpacity,
+  ViewProps,
+} from 'react-native';
 
 export interface VStackProps extends ViewProps {
   padder?: boolean;
@@ -42,10 +46,17 @@ const VStack: React.FC<VStackProps> = memo(
     style,
     padder,
     children,
-    mt, mb, ml, mr,
-    mh, mv,
-    pt, pb, pl,
-    ph, pv,
+    mt,
+    mb,
+    ml,
+    mr,
+    mh,
+    mv,
+    pt,
+    pb,
+    pl,
+    ph,
+    pv,
     padding,
     margin,
     itemsCenter,
@@ -62,7 +73,7 @@ const VStack: React.FC<VStackProps> = memo(
     ...props
   }) => {
     const theme = useTheme();
-    const disabled = !!!onPress && !!!onLongPress;
+    const disabled = !onPress && !onLongPress;
     return (
       <>
         <TouchableOpacity
@@ -71,16 +82,16 @@ const VStack: React.FC<VStackProps> = memo(
           activeOpacity={disabled ? 1 : 0.54}
           onPress={onPress}
           style={[
-            flexOne && {flex: 1},
+            flexOne && { flex: 1 },
             {
               borderRadius: border,
-              maxWidth: maxWidth,
-              minWidth: minWidth,
+              maxWidth,
+              minWidth,
               alignItems: itemsCenter ? 'center' : undefined,
               paddingHorizontal: padder ? 24 : ph,
               paddingBottom: pb,
               paddingLeft: pl,
-              padding: padding,
+              padding,
               justifyContent: justify,
               marginTop: mt,
               alignSelf: alignSelfCenter ? 'center' : undefined,
@@ -91,7 +102,7 @@ const VStack: React.FC<VStackProps> = memo(
               marginVertical: mv,
               paddingTop: pt,
               flexWrap: wrap ? 'wrap' : undefined,
-              margin: margin,
+              margin,
               paddingVertical: pv,
               backgroundColor: level
                 ? theme[`background-basic-color-${level}`]
