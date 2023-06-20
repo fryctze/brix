@@ -1,13 +1,10 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { Layout } from '@ui-kitten/components';
-import { View } from 'react-native';
 
-import { IntroScreen } from '../screens/IntroScreen';
 import { ChooseUserSignScreen } from '../screens/auth/ChooseUserSignScreen';
 import { Login } from '../screens/auth/Login';
-import { Intro } from '../screens/intro/Intro';
-import IntroSlideScreen from '../screens/intro/IntroSlideScreen';
+import { Register } from '../screens/auth/Register';
+import { IntroScreen } from '../screens/intro/IntroScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -18,10 +15,9 @@ const MainNavigation = () => {
       screenOptions={{
         headerShown: false,
       }}>
-      <Stack.Screen name="IntroSlide" component={IntroSlideScreen} />
+      <Stack.Screen name="Intro" component={IntroScreen} />
       <Stack.Screen name="ChooseUserSign" component={ChooseUserSignScreen} />
-      <Stack.Screen name="IntroScreen" component={IntroScreen} />
-      <Stack.Screen name="Intro" component={Intro} />
+      <Stack.Screen name="Register" component={Register} />
       <Stack.Screen name="Login" component={Login} />
     </Stack.Navigator>
   );

@@ -9,7 +9,7 @@ import { Text } from '../../component';
 import { ThemeContext } from '../../provider/theme-context';
 import { ChooseUserSignScreen } from '../auth/ChooseUserSignScreen';
 
-export const Intro = () => {
+export const IntroScreen = () => {
   const themeContext = useContext(ThemeContext);
   const styles = useStyleSheet(themedStyles);
 

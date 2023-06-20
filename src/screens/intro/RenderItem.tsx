@@ -25,11 +25,11 @@ export const RenderItem = ({ item }: { item: Item }) => {
               style={{ width: '100%', marginTop: 32 }}
               resizeMethod="auto"
             />
-            <VStack ph={32} mt={32}>
+            <VStack ph={32} mt={52}>
               <Text category="h1" center bold>
                 {item.title}
               </Text>
-              <Text center bold marginTop={16}>
+              <Text center bold marginTop={32}>
                 {item.text}
               </Text>
             </VStack>

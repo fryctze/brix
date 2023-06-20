@@ -3,26 +3,14 @@ import Images from '../../assets/images';
 export const slides = [
   {
     key: 's1',
-    text: 'Best Recharge offers',
-    title: 'Mobile Recharge',
+    text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries",
+    title: 'Make Learning Easy and Fun',
     img: Images.intro1,
-    //img: 'https://raw.githubusercontent.com/AboutReact/sampleresource/master/intro_mobile_recharge.png',
-    image: {
-      //uri: 'https://raw.githubusercontent.com/AboutReact/sampleresource/master/intro_mobile_recharge.png',
-      uri: Images.intro1,
-    },
-    backgroundColor: '#20d2bb',
   },
   {
     key: 's2',
     title: 'Flight Booking',
-    text: 'Upto 25% off on Domestic Flights',
+    text: 'but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
     img: Images.intro1,
-    //img: 'https://raw.githubusercontent.com/AboutReact/sampleresource/master/intro_flight_ticket_booking.png',
-    image: {
-      uri: 'https://raw.githubusercontent.com/AboutReact/sampleresource/master/intro_flight_ticket_booking.png',
-      //uri: Images.intro1,
-    },
-    backgroundColor: '#febe29',
   },
 ];
