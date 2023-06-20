@@ -1,30 +1,21 @@
-import {
-  Button,
-  Divider,
-  Icon,
-  Input,
-  Layout,
-  useStyleSheet,
-  useTheme,
-} from '@ui-kitten/components';
+import { NavigationProp, useNavigation } from '@react-navigation/native';
+import { Button, Icon, Input, useStyleSheet } from '@ui-kitten/components';
 import { TouchableWithoutFeedback } from '@ui-kitten/components/devsupport';
 import React, { ReactElement, useState } from 'react';
 import {
-  Image,
   KeyboardAvoidingView,
-  KeyboardAvoidingViewComponent,
   StyleSheet,
   TouchableOpacity,
-  View,
 } from 'react-native';
 
 import { ButtonSignWith } from './ButtonSignWith';
 import { CustomDivider } from './CustomDivider';
-import Images from '../../assets/images';
+import { Logo } from './Logo';
 import { Container, Content, HStack, Text, VStack } from '../../component';
+import { RootStackParamList } from '../../routes/navigation-types';
 
 export const Login = () => {
-  const theme = useTheme();
+  const navigation = useNavigation<NavigationProp<RootStackParamList>>();
   const styles = useStyleSheet(themedStyles);
 
   const [email, setEmail] = useState('');
@@ -68,7 +59,7 @@ export const Login = () => {
                   forgot password?
                 </Text>
               </TouchableOpacity>
-              <Button style={styles.buttonLogin}>
+              <Button style={styles.buttonSign}>
                 {evaProps => (
                   // @ts-ignore
                   <Text
@@ -82,7 +73,10 @@ export const Login = () => {
               </Button>
               <HStack alignSelfCenter>
                 <Text>Don't have an account? </Text>
-                <TouchableOpacity>
+                <TouchableOpacity
+                  onPress={() => {
+                    navigation.navigate('Register');
+                  }}>
                   <Text status={'primary'} bold>
                     SIGN UP
                   </Text>
@@ -99,7 +93,7 @@ export const Login = () => {
               <ButtonSignWith text={'Sign in with Facebook'} provider={'fb'} />
             </VStack>
 
-            <Image source={Images.icon_small} style={styles.logo} />
+            <Logo />
           </VStack>
         </Content>
       </KeyboardAvoidingView>
@@ -113,7 +107,7 @@ const themedStyles = StyleSheet.create({
   content: { flex: 1 },
   inputField: { marginBottom: 12 },
   forgotPassword: { alignSelf: 'flex-end' },
-  buttonLogin: {
+  buttonSign: {
     flex: 1,
     borderRadius: 12,
     marginTop: 36,
@@ -121,9 +115,5 @@ const themedStyles = StyleSheet.create({
   },
   buttonText: {
     color: 'text-alternate-color',
-  },
-  logo: {
-    alignSelf: 'center',
-    marginBottom: 32,
   },
 });

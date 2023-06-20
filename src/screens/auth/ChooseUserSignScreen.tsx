@@ -1,3 +1,4 @@
+import { NavigationProp, useNavigation } from '@react-navigation/native';
 import { useStyleSheet } from '@ui-kitten/components';
 import { useContext, useEffect } from 'react';
 import { Image, StyleSheet } from 'react-native';
@@ -5,8 +6,10 @@ import { Image, StyleSheet } from 'react-native';
 import Images from '../../assets/images';
 import { Container, HStack, VStack, Text, Content } from '../../component';
 import { ThemeContext } from '../../provider/theme-context';
+import { RootStackParamList } from '../../routes/navigation-types';
 
 export const ChooseUserSignScreen = () => {
+  const navigation = useNavigation<NavigationProp<RootStackParamList>>();
   const themeContext = useContext(ThemeContext);
   const styles = useStyleSheet(themedStyles);
 
@@ -44,7 +47,7 @@ export const ChooseUserSignScreen = () => {
               <VStack
                 style={styles.ButtonLayout}
                 onPress={() => {
-                  console.log('teacher');
+                  navigation.navigate('Login');
                 }}>
                 <Image
                   source={Images.teacher}
@@ -58,7 +61,7 @@ export const ChooseUserSignScreen = () => {
               <VStack
                 style={styles.ButtonLayout}
                 onPress={() => {
-                  console.log('student');
+                  navigation.navigate('Login');
                 }}>
                 <Image
                   source={Images.student}

@@ -12,7 +12,7 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 const MainNavigation = () => {
   return (
     <Stack.Navigator
-      initialRouteName="Register"
+      initialRouteName="Intro"
       screenOptions={{
         headerShown: false,
       }}>
