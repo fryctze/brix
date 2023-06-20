@@ -9,7 +9,7 @@ import { slides } from './slides';
 import { Text } from '../../component';
 import { ThemeContext } from '../../provider/theme-context';
 import { ChooseUserSignScreen } from '../auth/ChooseUserSignScreen';
-import { Login } from '../auth/Login';
+import { Register } from '../auth/Register';
 
 export const Intro = () => {
   const themeContext = useContext(ThemeContext);
