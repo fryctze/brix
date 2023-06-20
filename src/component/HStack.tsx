@@ -25,6 +25,7 @@ export interface HStackProps extends ViewProps {
   maxWidth?: number;
   minWidth?: number;
   padding?: number;
+  borderRadius?: number;
   border?: number;
   margin?: number;
   opacity?: number;
@@ -68,6 +69,7 @@ const HStack: React.FC<HStackProps> = memo(
     onLongPress,
     justify = 'space-between',
     onPress,
+    borderRadius,
     border,
     maxWidth,
     minWidth,
@@ -87,7 +89,8 @@ const HStack: React.FC<HStackProps> = memo(
           style={[
             {
               opacity,
-              borderRadius: border,
+              borderRadius,
+              borderWidth: border,
               maxWidth,
               minWidth,
               alignItems: itemsCenter ? 'center' : 'flex-start',

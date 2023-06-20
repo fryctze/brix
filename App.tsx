@@ -1,9 +1,10 @@
 import * as eva from '@eva-design/eva';
-import { ApplicationProvider } from '@ui-kitten/components';
+import { ApplicationProvider, IconRegistry } from '@ui-kitten/components';
 import { StatusBar } from 'expo-status-bar';
 import { useCallback, useEffect, useState } from 'react';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
+import AssetsIconsPack from './src/assets/AssetsIconsPack';
 import { loadFonts } from './src/assets/fonts/ExpoFonts';
 import { default as appTheme } from './src/constant/appTheme.json';
 import { default as mapping } from './src/constant/mapping.json';
@@ -37,6 +38,7 @@ export default () => {
   return (
     <SafeAreaProvider>
       <ThemeContext.Provider value={{ theme, toggleTheme }}>
+        <IconRegistry icons={[AssetsIconsPack]} />
         <ApplicationProvider
           {...eva}
           // @ts-ignore
