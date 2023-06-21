@@ -2,7 +2,6 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Icon, IconElement } from '@ui-kitten/components';
-import { TouchableWithoutFeedback } from '@ui-kitten/components/devsupport';
 import React from 'react';
 
 import { RootStackParamList } from './navigation-types';
@@ -11,7 +10,6 @@ import { Login } from '../screens/auth/Login';
 import { Register } from '../screens/auth/Register';
 import { IntroScreen } from '../screens/intro/IntroScreen';
 import { BarBottom } from '../screens/main/BarBottom';
-import BottomBar from '../screens/main/BottomBar';
 import { ChatScreen } from '../screens/main/chat/ChatScreen';
 import { ClassScreen } from '../screens/main/class/ClassScreen';
 import { HomeScreen } from '../screens/main/home/HomeScreen';
@@ -81,7 +79,7 @@ const AuthNavigation = () => {
 const RootNavigation = () => {
   return (
     <Stack.Navigator
-      initialRouteName="Main"
+      initialRouteName="Auth"
       screenOptions={{ headerShown: false }}>
       <Stack.Screen name="Auth" component={AuthNavigation} />
       <Stack.Screen name="Main" component={MainNavigation} />
