@@ -59,7 +59,9 @@ export const Login = () => {
                   forgot password?
                 </Text>
               </TouchableOpacity>
-              <Button style={styles.buttonSign}>
+              <Button
+                style={styles.buttonSign}
+                onPress={() => navigation.navigate('Main')}>
                 {evaProps => (
                   // @ts-ignore
                   <Text

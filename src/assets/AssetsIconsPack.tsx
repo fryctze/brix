@@ -37,6 +37,12 @@ const AssetsIconsPack: IconPack<ImageProps | SvgProps> = {
     eye_close: createIcon(Icons.eye_close),
     fb: createIcon(Icons.fb),
     gg: createIcon(Icons.gg),
+
+    home: createIcon(Icons.home),
+    class_icon: createIcon(Icons.class_icon),
+    chat: createIcon(Icons.chat),
+    quiz: createIcon(Icons.quiz),
+    profile: createIcon(Icons.profile),
   },
 };
 export default AssetsIconsPack;
