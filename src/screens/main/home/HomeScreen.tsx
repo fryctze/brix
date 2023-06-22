@@ -1,11 +1,6 @@
-import {
-  BottomNavigation,
-  BottomNavigationTab,
-  Layout,
-  useTheme,
-} from '@ui-kitten/components';
-import { memo, useState } from 'react';
-import { Image } from 'react-native';
+import { useStyleSheet } from '@ui-kitten/components';
+import { memo } from 'react';
+import { Image, StyleSheet } from 'react-native';
 
 import { ActionBar } from './ActionBar';
 import { ItemMenuList } from './ItemMenuList';
@@ -13,58 +8,33 @@ import Images from '../../../assets/images';
 import { Container, Content, HStack, Text, VStack } from '../../../component';
 
 export const HomeScreen = memo(() => {
-  const theme = useTheme();
+  const styles = useStyleSheet(themedStyles);
+
   return (
     <Container>
       <ActionBar />
       <Content
         isPadding
-        style={{ height: '100%' }}
-        contentContainerStyle={{ flexGrow: 1 }}>
+        style={styles.scrollView}
+        contentContainerStyle={styles.scrollContent}>
         {/* Start Top Card */}
-        <VStack
-          style={{
-            backgroundColor: theme['color-basic-300'],
-            borderRadius: 16,
-          }}>
-          <HStack
-            style={{
-              height: 200,
-              backgroundColor: theme['color-primary-default'],
-              borderRadius: 16,
-              padding: 16,
-            }}>
-            <VStack
-              style={{
-                alignSelf: 'stretch',
-                justifyContent: 'flex-start',
-              }}>
-              <VStack style={{ flex: 1, justifyContent: 'flex-start' }}>
-                <Text
-                  category={'h5'}
-                  bold
-                  style={{ color: theme['text-alternate-color'] }}>
+        <VStack style={styles.topCardContainer}>
+          <HStack style={styles.topCardMainContainer}>
+            <VStack style={styles.topCardMainTextContainer}>
+              <VStack style={styles.topCardMainTopTextContainer}>
+                <Text category={'h5'} bold style={styles.topCardMainText}>
                   Bahasa Jerman
                 </Text>
-                <Text style={{ color: theme['text-alternate-color'] }}>
-                  12 Bahasa
-                </Text>
+                <Text style={styles.topCardMainText}>12 Bahasa</Text>
               </VStack>
-              <Text style={{ color: theme['text-alternate-color'] }}>
+              <Text style={styles.topCardMainText}>
                 Dr. Desti Nur Aini, S.S. M.Pd.
               </Text>
             </VStack>
             <Image
               source={Images.phone}
               resizeMode={'contain'}
-              style={{
-                height: 200,
-                width: 200,
-                alignSelf: 'flex-end',
-                position: 'absolute',
-                right: -40,
-                zIndex: -100,
-              }}
+              style={styles.topCardImage}
             />
           </HStack>
           <HStack pv={8} ph={16}>
@@ -92,4 +62,30 @@ export const HomeScreen = memo(() => {
       </Content>
     </Container>
   );
+});
+
+const themedStyles = StyleSheet.create({
+  scrollView: { height: '100%' },
+  scrollContent: { flexGrow: 1 },
+  topCardContainer: { backgroundColor: 'color-basic-300', borderRadius: 16 },
+  topCardMainContainer: {
+    height: 200,
+    backgroundColor: 'color-primary-default',
+    borderRadius: 16,
+    padding: 16,
+  },
+  topCardMainTextContainer: {
+    alignSelf: 'stretch',
+    justifyContent: 'flex-start',
+  },
+  topCardMainTopTextContainer: { flex: 1, justifyContent: 'flex-start' },
+  topCardMainText: { color: 'text-alternate-color' },
+  topCardImage: {
+    height: 200,
+    width: 200,
+    alignSelf: 'flex-end',
+    position: 'absolute',
+    right: -40,
+    zIndex: -100,
+  },
 });
